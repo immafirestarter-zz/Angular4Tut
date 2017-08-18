@@ -3,15 +3,27 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <h1> Sup Reshma! </h1>
+    <h1 [ngClass]="titleClasses"> Sup Modas! </h1>
 
-    <button (mouseenter)="buttonStatus($event)">Buttton</button>
   `,
-  styleUrls: ['./app.component.css']
-})
+  styles: [`
+
+    .blue-title {
+      color:blue;
+    }
+
+    .big-title {
+      font-size: 70px
+    }
+
+   `]
+  })
 export class AppComponent {
 
-buttonStatus(event) {
-  console.log(event)
-}
+  titleClass = false
+  titleClasses = {
+    'blue-title': true,
+    'big-title': true
+  }
+
 }
