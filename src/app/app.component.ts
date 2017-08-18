@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-
+import { FetchService } from './fetch.service'
 @Component({
   selector: 'app-root',
   template: `
-    <h1 [ngClass]="titleClasses"> Sup Modas! </h1>
+    <p> {{ someProperty }}
 
   `,
   styles: [`
@@ -20,10 +20,14 @@ import { Component } from '@angular/core';
   })
 export class AppComponent {
 
-  titleClass = false
-  titleClasses = {
-    'blue-title': true,
-    'big-title': true
-  }
+  constructor(private fetchService:FetchService) {
+
+}
+
+someProperty:string = '';
+ngOnInit() {
+  console.log(this.fetchService.cars);
+  this.someProperty = this.fetchService.myData();
+}
 
 }
